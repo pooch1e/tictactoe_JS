@@ -5,7 +5,7 @@ const gameboard = {
 
   render: function(){
     console.log("   ") // empty space before a board
-    this.board.forEach((arr, i)=> { // looping over each array in the board
+    this.board.forEach((arr, i) => { // looping over each array in the board
         console.log(arr.toString().replace(/,/g, "|"))
     })
 },
@@ -13,8 +13,10 @@ const gameboard = {
   checkMoveIsValid: function(x, y) {
     if (this.board[x][y] == " ") {
       console.log("valid move")
+      return true;
     } else {
       console.log("invalid, please try again")
+      return false;
     }
   },
 
@@ -24,37 +26,32 @@ const gameboard = {
       let col = this.board.map(row => row[i]);
       if (row.every(cell => cell === player_symbol) || col.every(cell => cell === player_symbol)) { //check lines
         this.gameWon = true;
+        return true;
       }
     }
     //check diagonals
     if (this.board[0][0] === player_symbol && this.board[1][1] === player_symbol && this.board[2][2] === player_symbol || this.board[0][2] === player_symbol && this.board[1][1] === player_symbol && this.board[2][0] === player_symbol) {
       this.gameWon = true;
+      return true;
     }
+    return false;
   }
 
-
-
-}
+};
 
 const player = {
-  init: function(x, y) {
-    this.x = x;
-    this.y = y;
-    this.symbol = input;
+  init: function(symbol) {
+    this.symbol = symbol;
   },
 
-  whoIsPlaying: function() {
-    let input;
-    input = prompt("Enter X or O");
-    return input;
-  },
-
-  playerMove: function(x, y) {
-   this.symbol = gameboard.board[x][y];
+  playerMove: function(x, y) { //need to work on this
+   
   }
 
   
 }
+player.init("X")
 //debug
 gameboard.render();
+player.playerMove(0, 0)
 gameboard.checkMoveIsValid(0, 0);
