@@ -3,7 +3,7 @@ const gameboard = {
   gameWon: false,
   turn: 0,
 
-  updateBoard: function(){
+  render: function(){
     console.log("   ") // empty space before a board
     this.board.forEach((arr, i)=> { // looping over each array in the board
         console.log(arr.toString().replace(/,/g, "|"))
@@ -25,6 +25,10 @@ const gameboard = {
       if (row.every(cell => cell === player_symbol) || col.every(cell => cell === player_symbol)) { //check lines
         this.gameWon = true;
       }
+    }
+    //check diagonals
+    if (this.board[0][0] === player_symbol && this.board[1][1] === player_symbol && this.board[2][2] === player_symbol || this.board[0][2] === player_symbol && this.board[1][1] === player_symbol && this.board[2][0] === player_symbol) {
+      this.gameWon = true;
     }
   }
 
@@ -52,5 +56,5 @@ const player = {
   
 }
 //debug
-gameboard.updateBoard();
+gameboard.render();
 gameboard.checkMoveIsValid(0, 0);
