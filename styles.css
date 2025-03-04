@@ -66,14 +66,13 @@ h2 {
 }
 
 
-
-
-button {
-  background: #333;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
+.button-container {
+  display: flex;
+}
+#button {
+  display: block;
+  justify-content: center;
+  justify-items: center;
 }
 
 button:hover {

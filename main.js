@@ -15,6 +15,7 @@ const gameboard = {
   init: function() {
     this.addListener();
     this.running = true;
+    this.restartGame();
   },
 
   addListener: function() { //adds listener to cells
@@ -27,8 +28,8 @@ const gameboard = {
     const cellIndex = Number($(e.target).attr("id"));
     console.log(cellIndex); //for debug
 
-    //only get cell index if options are empty
-    if (this.options[cellIndex] !== "") {
+    //only get cell index if options are empty and game is running
+    if (this.options[cellIndex] !== "" || !this.running) {
       return
     } else {
       this.updateBoard(cellIndex)
@@ -45,6 +46,7 @@ const gameboard = {
 
   changePlayer: function() {
     this.currentPlayer = (this.currentPlayer == "X") ? "0": "X";
+    $("#player-turn").html(`Player ${this.currentPlayer}'s turn`); //update UI html
   },
 
   checkWinner: function() {
@@ -56,18 +58,31 @@ const gameboard = {
       const cellB = this.options[gameState[1]];
       const cellC = this.options[gameState[2]];
 
-      if (cellA == cellB && cellB == cellC) {
+      if (cellA && cellA === cellB && cellB === cellC) {
         winner = true;
         break;
       }
     }
     if (winner) {
       //need to change text to who won
-      $("#player-turn").html("`${this.currentPlayer}");
+      $("#player-turn").html(`${this.currentPlayer} wins!`);
       this.running = false;
-      return
+    } else if (!this.options.includes("")) { //find draw
+      $("#player-turn").html("It's a draw!");
+      this.running = false;
+    } else {
+      this.changePlayer();
     }
   },
+
+  restartGame: function() {
+    $("#restart-btn").off("click").on("click", () => {
+    this.options = ["", "", "", "", "", "", "", "", ""];
+    $(".cell").html(""); //empty UI
+    this.currentPlayer = "X"
+    this.running = true;
+  });
+  }
 }
 
 const player = {
