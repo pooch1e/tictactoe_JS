@@ -10,22 +10,7 @@ body {
   background-color: #f0f0f0;
   color: #333;
   line-height: 1.6;
-  
 }
-
-/* .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-
-} */
-/* 
-header {
-  background: #333;
-  color: #fff;
-  padding: 10px 0;
-  text-align: center;
-} */
 
 h1 {
   margin-bottom: 20px;
@@ -44,7 +29,6 @@ h2 {
 /* gameboard */
 .game-container {
   text-align: center;
-  
 }
 
 .cell-container {
@@ -53,7 +37,6 @@ h2 {
   justify-content: center;
   width: 225px;
   margin: auto;
-  
 }
 
 .cell {
@@ -65,16 +48,24 @@ h2 {
   line-height: 115px;
 }
 
-
 .button-container {
   display: flex;
-}
-#button {
-  display: block;
   justify-content: center;
-  justify-items: center;
+  padding: 10px;
 }
 
-button:hover {
-  background: #555;
+button {
+  font-size: 28px; /* Increased font size */
+  padding: 20px 40px; /* Increased padding */
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 10px; /* Increased border radius */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform transition */
+}
+
+#button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); /* Slightly increase size on hover */
 }
