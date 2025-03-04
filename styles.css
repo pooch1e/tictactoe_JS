@@ -34,6 +34,13 @@ h1 {
   padding: 20px;
 }
 
+h2 {
+  margin-bottom: 20px;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
 /* gameboard */
 .game-container {
   text-align: center;
@@ -43,6 +50,7 @@ h1 {
 .cell-container {
   display: grid;
   grid-template-columns: repeat(3, auto);
+  justify-content: center;
   width: 225px;
   margin: auto;
   
@@ -56,6 +64,8 @@ h1 {
   cursor: crosshair;
   line-height: 115px;
 }
+
+
 
 
 button {

@@ -1,3 +1,4 @@
+//js in console
 const gameboard = {
   board: [[" ", " ", " "],[" ", " ", " "], [" ", " ", " "]],
   gameWon: false,
