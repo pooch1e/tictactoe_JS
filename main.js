@@ -85,9 +85,5 @@ const gameboard = {
   }
 }
 
-const player = {
-
-}
-
 
 gameboard.init();
