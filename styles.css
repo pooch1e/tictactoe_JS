@@ -10,24 +10,53 @@ body {
   background-color: #f0f0f0;
   color: #333;
   line-height: 1.6;
+  
 }
 
-.container {
+/* .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-}
 
+} */
+/* 
 header {
   background: #333;
   color: #fff;
   padding: 10px 0;
   text-align: center;
-}
+} */
 
 h1 {
   margin-bottom: 20px;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
 }
+
+/* gameboard */
+.game-container {
+  text-align: center;
+  
+}
+
+.cell-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 225px;
+  margin: auto;
+  
+}
+
+.cell {
+  width: 120px;
+  height: 120px;
+  border: solid 2px;
+  font-size: 75px;
+  cursor: crosshair;
+  line-height: 115px;
+}
+
 
 button {
   background: #333;
